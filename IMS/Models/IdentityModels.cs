@@ -35,5 +35,7 @@ namespace IMS.Models
         public System.Data.Entity.DbSet<IMS.Models.Product> Products { get; set; }
 
         public System.Data.Entity.DbSet<IMS.Models.Purchase> Purchases { get; set; }
+
+        public System.Data.Entity.DbSet<IMS.Models.Sales> Sales { get; set; }
     }
 }
