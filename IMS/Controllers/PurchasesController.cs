@@ -61,6 +61,17 @@ namespace IMS.Controllers
                     context.Inventories.Add(inventory);
                     context.SaveChanges();
                 }
+
+                using (var context1 = new ApplicationDbContext())
+                {
+                    var stock = new Stock
+                    {
+                        Qty = purchase.Qty,
+                        ProductId = purchase.ProductId
+                    };
+                    context1.Stocks.Add(stock);
+                    context1.SaveChanges();
+                }
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
