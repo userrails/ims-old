@@ -72,4 +72,4 @@ c:\users\siv\documents\visual studio 2015\Projects\IMS\IMS\obj\Debug\IMS.csproj.
 c:\users\siv\documents\visual studio 2015\Projects\IMS\IMS\obj\Debug\IMS.Migrations.Product.resources
 c:\users\siv\documents\visual studio 2015\Projects\IMS\IMS\obj\Debug\IMS.Migrations.Purchase.resources
 C:\Users\Siv\documents\visual studio 2015\Projects\IMS\IMS\obj\Debug\IMS.Migrations.Sales.resources
-C:\Users\Siv\documents\visual studio 2015\Projects\IMS\IMS\obj\Debug\IMS.Migrations.Stock.resources
+C:\Users\Siv\documents\visual studio 2015\Projects\IMS\IMS\obj\Debug\IMS.Migrations.Inventory.resources
