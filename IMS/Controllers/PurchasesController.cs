@@ -53,6 +53,14 @@ namespace IMS.Controllers
             if (ModelState.IsValid)
             {
                 db.Purchases.Add(purchase);
+                using (var context = new ApplicationDbContext())
+                {
+                    var inventory = new Inventory();
+                    inventory.Qty = purchase.Qty;
+                    inventory.ProductId = purchase.ProductId;
+                    context.Inventories.Add(inventory);
+                    context.SaveChanges();
+                }
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
