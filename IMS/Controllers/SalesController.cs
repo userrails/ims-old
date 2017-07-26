@@ -54,6 +54,29 @@ namespace IMS.Controllers
             if (ModelState.IsValid)
             {
                 db.Sales.Add(sales);
+
+                Stock stock;
+                // Get stock from database
+                using (var context = new ApplicationDbContext())
+                {
+                    stock = context.Stocks.Where(s => s.ProductId == sales.ProductId).FirstOrDefault<Stock>();
+                }
+                // edit stock object with new values out of context scope in disconnected mode
+                if (stock != null)
+                {
+                    stock.ProductId = sales.ProductId;
+                    stock.Qty = sales.Qty;
+                }
+
+                // save modified entities using new context
+                using (var dbContext = new ApplicationDbContext())
+                {
+                    // mark entity as modified
+                    dbContext.Entry(stock).State = System.Data.Entity.EntityState.Modified;
+                    // call SaveChanges
+                    dbContext.SaveChanges();
+                }
+
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
