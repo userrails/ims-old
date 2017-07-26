@@ -53,25 +53,37 @@ namespace IMS.Controllers
             if (ModelState.IsValid)
             {
                 db.Purchases.Add(purchase);
+
+
+                Stock stock;
+                // Get stock from database
                 using (var context = new ApplicationDbContext())
                 {
-                    var inventory = new Inventory();
-                    inventory.Qty = purchase.Qty;
-                    inventory.ProductId = purchase.ProductId;
-                    context.Inventories.Add(inventory);
-                    context.SaveChanges();
+                    stock = context.Stocks.Where(s => s.ProductId == purchase.ProductId).FirstOrDefault<Stock>();
                 }
 
-                using (var context1 = new ApplicationDbContext())
+                // update modified entities using new context
+                using (var dbContext = new ApplicationDbContext())
                 {
-                    var stock = new Stock
+                    // edit stock object with new values out of context scope in disconnected mode
+                    if (stock != null)
                     {
-                        Qty = purchase.Qty,
-                        ProductId = purchase.ProductId
-                    };
-                    context1.Stocks.Add(stock);
-                    context1.SaveChanges();
+                        stock.Qty = purchase.Qty;
+                        // mark entity as modified
+                        dbContext.Entry(stock).State = System.Data.Entity.EntityState.Modified;
+                        // call SaveChanges
+                        dbContext.SaveChanges();
+                    }
+                    else
+                    {
+                        Stock stok = new Stock();
+                        stok.ProductId = purchase.ProductId;
+                        stok.Qty = purchase.Qty;
+                        dbContext.Stocks.Add(stok);
+                        dbContext.SaveChanges();
+                    }
                 }
+
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
