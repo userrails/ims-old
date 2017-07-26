@@ -61,22 +61,28 @@ namespace IMS.Controllers
                 {
                     stock = context.Stocks.Where(s => s.ProductId == sales.ProductId).FirstOrDefault<Stock>();
                 }
-                // edit stock object with new values out of context scope in disconnected mode
-                if (stock != null)
-                {
-                    stock.ProductId = sales.ProductId;
-                    stock.Qty = sales.Qty;
-                }
 
-                // save modified entities using new context
+                // update modified entities using new context
                 using (var dbContext = new ApplicationDbContext())
                 {
-                    // mark entity as modified
-                    dbContext.Entry(stock).State = System.Data.Entity.EntityState.Modified;
-                    // call SaveChanges
-                    dbContext.SaveChanges();
+                    // edit stock object with new values out of context scope in disconnected mode
+                    if (stock != null)
+                    {
+                        stock.Qty = sales.Qty;
+                        // mark entity as modified
+                        dbContext.Entry(stock).State = System.Data.Entity.EntityState.Modified;
+                        // call SaveChanges
+                        dbContext.SaveChanges();
+                    }
+                    else
+                    {
+                        Stock stok = new Stock();
+                        stok.ProductId = sales.ProductId;
+                        stok.Qty = sales.Qty;
+                        dbContext.Stocks.Add(stok);
+                        dbContext.SaveChanges();
+                    }
                 }
-
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
