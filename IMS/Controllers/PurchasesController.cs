@@ -68,7 +68,7 @@ namespace IMS.Controllers
                     // edit stock object with new values out of context scope in disconnected mode
                     if (stock != null)
                     {
-                        stock.Qty = purchase.Qty;
+                        stock.Qty = stock.Qty + purchase.Qty;
                         // mark entity as modified
                         dbContext.Entry(stock).State = System.Data.Entity.EntityState.Modified;
                         // call SaveChanges
