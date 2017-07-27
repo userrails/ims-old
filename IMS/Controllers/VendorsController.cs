@@ -123,5 +123,11 @@ namespace IMS.Controllers
             }
             base.Dispose(disposing);
         }
+
+        // uniqueness validation code
+        public JsonResult IsNameExists(string Name)
+        {
+            return Json(!db.Vendors.Any(n => n.Name == Name), JsonRequestBehavior.AllowGet);
+        }
     }
 }
