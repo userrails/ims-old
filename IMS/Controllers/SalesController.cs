@@ -161,5 +161,18 @@ namespace IMS.Controllers
             }
             base.Dispose(disposing);
         }
+
+        // check if stock is there to sell the product
+        public JsonResult IsStockAvailable(int Qty, int ProductId)
+        {
+           Stock stock1;
+           using (var context = new ApplicationDbContext())
+           {
+             stock1 = db.Stocks.Where(s => s.ProductId.Equals(ProductId)).FirstOrDefault<Stock>();
+           }
+           var u_can_sell = stock1.Qty < Qty;
+           return Json(!u_can_sell, JsonRequestBehavior.AllowGet);
+            //return Json(false, JsonRequestBehavior.AllowGet);
+        }
     }
 }
