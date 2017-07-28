@@ -28,7 +28,7 @@ namespace IMS.Models
     {
         public int ProductId { get; set; }
 
-        [Remote("IsStockAvailable", "Sales", AdditionalFields="ProductId", ErrorMessage = "The quantity of the product you are selling is not available in Stock!")]
+        [Remote("IsStockAvailable", "Sales", AdditionalFields="ProductId", ErrorMessage = "The quantity of the product you are selling is not available in Stock or you have entered incorrect value!")]
         public int Qty { get; set; }
 
     }

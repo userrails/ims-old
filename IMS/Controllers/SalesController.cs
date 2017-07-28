@@ -55,32 +55,28 @@ namespace IMS.Controllers
             {
                 db.Sales.Add(sales);
 
-                Stock stock;
+                Product product;
                 // Get stock from database
                 using (var context = new ApplicationDbContext())
                 {
-                    stock = context.Stocks.Where(s => s.ProductId == sales.ProductId).FirstOrDefault<Stock>();
+                    product = context.Products.Where(p => p.Id == sales.ProductId).FirstOrDefault<Product>();
                 }
 
                 // update modified entities using new context
                 using (var dbContext = new ApplicationDbContext())
                 {
                     // edit stock object with new values out of context scope in disconnected mode
-                    if (stock != null)
+                    if (product != null)
                     {
-                        stock.Qty = stock.Qty - sales.Qty;
+                        product.StockQty = product.StockQty - sales.Qty;
                         // mark entity as modified
-                        dbContext.Entry(stock).State = System.Data.Entity.EntityState.Modified;
+                        dbContext.Entry(product).State = System.Data.Entity.EntityState.Modified;
                         // call SaveChanges
                         dbContext.SaveChanges();
                     }
                     else
                     {
-                        Stock stok = new Stock();
-                        stok.ProductId = sales.ProductId;
-                        stok.Qty = sales.Qty;
-                        dbContext.Stocks.Add(stok);
-                        dbContext.SaveChanges();
+                       // Display error message saying product doesnot exists so you cannot create sales entry or validate frm model
                     }
                 }
                 db.SaveChanges();
@@ -165,12 +161,12 @@ namespace IMS.Controllers
         // check if stock is there to sell the product
         public JsonResult IsStockAvailable(int Qty, int ProductId)
         {
-           Stock stock1;
+            Product product;
            using (var context = new ApplicationDbContext())
            {
-             stock1 = db.Stocks.Where(s => s.ProductId.Equals(ProductId)).FirstOrDefault<Stock>();
+             product = db.Products.Where(p => p.Id.Equals(ProductId)).FirstOrDefault<Product>();
            }
-           var u_can_sell = stock1.Qty < Qty;
+           var u_can_sell = ((product.StockQty < Qty) || (product.StockQty <= 0) || (Qty <= 0));
            return Json(!u_can_sell, JsonRequestBehavior.AllowGet);
             //return Json(false, JsonRequestBehavior.AllowGet);
         }

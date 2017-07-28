@@ -55,32 +55,30 @@ namespace IMS.Controllers
                 db.Purchases.Add(purchase);
 
 
-                Stock stock;
+                // Stock stock;
+                Product product;
                 // Get stock from database
                 using (var context = new ApplicationDbContext())
                 {
-                    stock = context.Stocks.Where(s => s.ProductId == purchase.ProductId).FirstOrDefault<Stock>();
+                    // stock = context.Stocks.Where(s => s.ProductId == purchase.ProductId).FirstOrDefault<Stock>();
+                    product = context.Products.Where(p => p.Id == purchase.ProductId).FirstOrDefault<Product>();
                 }
 
                 // update modified entities using new context
                 using (var dbContext = new ApplicationDbContext())
                 {
                     // edit stock object with new values out of context scope in disconnected mode
-                    if (stock != null)
+                    if (product != null)
                     {
-                        stock.Qty = stock.Qty + purchase.Qty;
+                        product.StockQty = product.StockQty + purchase.Qty;
                         // mark entity as modified
-                        dbContext.Entry(stock).State = System.Data.Entity.EntityState.Modified;
+                        dbContext.Entry(product).State = System.Data.Entity.EntityState.Modified;
                         // call SaveChanges
                         dbContext.SaveChanges();
                     }
                     else
                     {
-                        Stock stok = new Stock();
-                        stok.ProductId = purchase.ProductId;
-                        stok.Qty = purchase.Qty;
-                        dbContext.Stocks.Add(stok);
-                        dbContext.SaveChanges();
+                        // Display error message saying product doesnot exists so you cannot create sales entry or validate frm model
                     }
                 }
 

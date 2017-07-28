@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.ComponentModel.DataAnnotations;
 using System.Web.Mvc;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace IMS.Models
 {
@@ -17,6 +18,7 @@ namespace IMS.Models
         [Required]
         public string Description { get; set; }
         public Decimal SellingPrice { get; set; }
+        public int StockQty { get; set; }
     }
 
     class ProductMetaData

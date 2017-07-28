@@ -13,11 +13,11 @@ namespace IMS.Controllers
     public class ProductsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
-
         // GET: Products
         public ActionResult Index()
         {
-            return View(db.Products.ToList());
+            var products = db.Products.ToList();
+            return View(products);
         }
 
         // GET: Products/Details/5

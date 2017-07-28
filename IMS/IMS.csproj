@@ -206,6 +206,10 @@
     <Compile Include="Migrations\201707280457513_RenameColumnPriceToSellingPrice.Designer.cs">
       <DependentUpon>201707280457513_RenameColumnPriceToSellingPrice.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201707281305451_AddColumnStockQtyOnProducts.cs" />
+    <Compile Include="Migrations\201707281305451_AddColumnStockQtyOnProducts.Designer.cs">
+      <DependentUpon>201707281305451_AddColumnStockQtyOnProducts.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -332,6 +336,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201707280457513_RenameColumnPriceToSellingPrice.resx">
       <DependentUpon>201707280457513_RenameColumnPriceToSellingPrice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707281305451_AddColumnStockQtyOnProducts.resx">
+      <DependentUpon>201707281305451_AddColumnStockQtyOnProducts.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

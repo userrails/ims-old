@@ -75,3 +75,4 @@ C:\Users\Siv\documents\visual studio 2015\Projects\IMS\IMS\obj\Debug\IMS.Migrati
 C:\Users\Siv\documents\visual studio 2015\Projects\IMS\IMS\obj\Debug\IMS.Migrations.Inventory.resources
 C:\Users\Siv\documents\visual studio 2015\Projects\IMS\IMS\obj\Debug\IMS.Migrations.CreateStock.resources
 C:\Users\Siv\documents\visual studio 2015\Projects\IMS\IMS\obj\Debug\IMS.Migrations.RenameColumnPriceToSellingPrice.resources
+C:\Users\Siv\documents\visual studio 2015\Projects\IMS\IMS\obj\Debug\IMS.Migrations.AddColumnStockQtyOnProducts.resources
