@@ -12,9 +12,11 @@ namespace IMS.Models
     public class Product
     {
         public int Id { get; set; }
+        [Required]
         public string Name { get; set; }
+        [Required]
         public string Description { get; set; }
-        public Decimal Price { get; set; }
+        public Decimal SellingPrice { get; set; }
     }
 
     class ProductMetaData
