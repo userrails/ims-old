@@ -154,5 +154,12 @@ namespace IMS.Controllers
             }
             base.Dispose(disposing);
         }
+
+        // you cannot purchase o or -ve item
+        public JsonResult IsValidQty(int Qty)
+        {
+            var u_can_purchase = (Qty <= 0);
+            return Json(!u_can_purchase, JsonRequestBehavior.AllowGet);
+        }
     }
 }
