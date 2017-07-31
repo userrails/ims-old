@@ -210,6 +210,10 @@
     <Compile Include="Migrations\201707281305451_AddColumnStockQtyOnProducts.Designer.cs">
       <DependentUpon>201707281305451_AddColumnStockQtyOnProducts.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201707310417422_CreateSalesOrder.cs" />
+    <Compile Include="Migrations\201707310417422_CreateSalesOrder.Designer.cs">
+      <DependentUpon>201707310417422_CreateSalesOrder.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -218,6 +222,7 @@
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\Purchase.cs" />
     <Compile Include="Models\Sales.cs" />
+    <Compile Include="Models\SalesOrder.cs" />
     <Compile Include="Models\Stock.cs" />
     <Compile Include="Models\Vendor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -339,6 +344,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201707281305451_AddColumnStockQtyOnProducts.resx">
       <DependentUpon>201707281305451_AddColumnStockQtyOnProducts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707310417422_CreateSalesOrder.resx">
+      <DependentUpon>201707310417422_CreateSalesOrder.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

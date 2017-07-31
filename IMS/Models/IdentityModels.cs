@@ -41,5 +41,7 @@ namespace IMS.Models
         public System.Data.Entity.DbSet<IMS.Models.Inventory> Inventories { get; set; }
 
         public System.Data.Entity.DbSet<IMS.Models.Stock> Stocks { get; set; }
+
+        public System.Data.Entity.DbSet<IMS.Models.SalesOrder> SalesOrder { get; set; }
     }
 }
