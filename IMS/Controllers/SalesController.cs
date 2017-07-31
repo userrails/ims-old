@@ -55,6 +55,20 @@ namespace IMS.Controllers
             {
                 db.Sales.Add(sales);
 
+                // create salesorder and save it on session
+                if (Session["order_id"] == null)
+                {
+                    using (var salesorderDbContext = new ApplicationDbContext())
+                    {
+                        SalesOrder so = new SalesOrder();
+                        so.OrderDate = DateTime.Now;
+                        salesorderDbContext.SalesOrder.Add(so);
+                        salesorderDbContext.SaveChanges();
+                        // add SalesOrder_id on session
+                        Session["order_id"] = so.Id;
+                    }
+                }
+
                 Product product;
                 // Get stock from database
                 using (var context = new ApplicationDbContext())

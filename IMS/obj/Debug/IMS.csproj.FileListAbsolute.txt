@@ -64,7 +64,6 @@ c:\users\siv\documents\visual studio 2015\Projects\IMS\IMS\bin\Microsoft.Owin.Se
 c:\users\siv\documents\visual studio 2015\Projects\IMS\IMS\bin\Microsoft.Owin.Security.Google.xml
 c:\users\siv\documents\visual studio 2015\Projects\IMS\IMS\bin\Microsoft.Owin.Security.Twitter.xml
 c:\users\siv\documents\visual studio 2015\Projects\IMS\IMS\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-c:\users\siv\documents\visual studio 2015\Projects\IMS\IMS\obj\Debug\IMS.csprojResolveAssemblyReference.cache
 c:\users\siv\documents\visual studio 2015\Projects\IMS\IMS\obj\Debug\IMS.dll
 c:\users\siv\documents\visual studio 2015\Projects\IMS\IMS\obj\Debug\IMS.pdb
 c:\users\siv\documents\visual studio 2015\Projects\IMS\IMS\obj\Debug\IMS.Migrations.Vendor.resources
@@ -77,3 +76,4 @@ C:\Users\Siv\documents\visual studio 2015\Projects\IMS\IMS\obj\Debug\IMS.Migrati
 C:\Users\Siv\documents\visual studio 2015\Projects\IMS\IMS\obj\Debug\IMS.Migrations.RenameColumnPriceToSellingPrice.resources
 C:\Users\Siv\documents\visual studio 2015\Projects\IMS\IMS\obj\Debug\IMS.Migrations.AddColumnStockQtyOnProducts.resources
 C:\Users\Siv\documents\visual studio 2015\Projects\IMS\IMS\obj\Debug\IMS.Migrations.CreateSalesOrder.resources
+C:\Users\Siv\documents\visual studio 2015\Projects\IMS\IMS\obj\Debug\IMS.csprojResolveAssemblyReference.cache

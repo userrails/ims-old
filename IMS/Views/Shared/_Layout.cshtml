@@ -38,6 +38,12 @@
         <hr />
         <footer>
             <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            @{
+                if (HttpContext.Current.Session["order_id"] != null)
+                {
+                    <p>Order#: @Html.Raw(HttpContext.Current.Session["order_id"])</p>
+                }
+            }
         </footer>
     </div>
 
