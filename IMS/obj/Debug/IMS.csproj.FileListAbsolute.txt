@@ -71,9 +71,7 @@ c:\users\siv\documents\visual studio 2015\Projects\IMS\IMS\obj\Debug\IMS.csproj.
 c:\users\siv\documents\visual studio 2015\Projects\IMS\IMS\obj\Debug\IMS.Migrations.Product.resources
 c:\users\siv\documents\visual studio 2015\Projects\IMS\IMS\obj\Debug\IMS.Migrations.Purchase.resources
 C:\Users\Siv\documents\visual studio 2015\Projects\IMS\IMS\obj\Debug\IMS.Migrations.Sales.resources
-C:\Users\Siv\documents\visual studio 2015\Projects\IMS\IMS\obj\Debug\IMS.Migrations.Inventory.resources
-C:\Users\Siv\documents\visual studio 2015\Projects\IMS\IMS\obj\Debug\IMS.Migrations.CreateStock.resources
 C:\Users\Siv\documents\visual studio 2015\Projects\IMS\IMS\obj\Debug\IMS.Migrations.RenameColumnPriceToSellingPrice.resources
 C:\Users\Siv\documents\visual studio 2015\Projects\IMS\IMS\obj\Debug\IMS.Migrations.AddColumnStockQtyOnProducts.resources
-C:\Users\Siv\documents\visual studio 2015\Projects\IMS\IMS\obj\Debug\IMS.Migrations.CreateSalesOrder.resources
 C:\Users\Siv\documents\visual studio 2015\Projects\IMS\IMS\obj\Debug\IMS.csprojResolveAssemblyReference.cache
+C:\Users\Siv\documents\visual studio 2015\Projects\IMS\IMS\obj\Debug\IMS.Migrations.CreateSalesOrder.resources

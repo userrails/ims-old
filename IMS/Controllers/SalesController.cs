@@ -17,7 +17,7 @@ namespace IMS.Controllers
         // GET: Sales
         public ActionResult Index()
         {
-            var sales = db.Sales.Include(s => s.Product).Include(s => s.Vendor);
+            var sales = db.Sales.Include(s => s.Product).Include(s => s.Vendor).Include(s => s.SalesOrder);
             return View(sales.ToList());
         }
 
@@ -53,14 +53,15 @@ namespace IMS.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Sales.Add(sales);
+                
+               
 
+                SalesOrder so = new SalesOrder();
                 // create salesorder and save it on session
                 if (Session["order_id"] == null)
                 {
                     using (var salesorderDbContext = new ApplicationDbContext())
                     {
-                        SalesOrder so = new SalesOrder();
                         so.OrderDate = DateTime.Now;
                         salesorderDbContext.SalesOrder.Add(so);
                         salesorderDbContext.SaveChanges();
@@ -93,6 +94,8 @@ namespace IMS.Controllers
                        // Display error message saying product doesnot exists so you cannot create sales entry or validate frm model
                     }
                 }
+                sales.SalesOrderId = so.Id;
+                db.Sales.Add(sales);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }

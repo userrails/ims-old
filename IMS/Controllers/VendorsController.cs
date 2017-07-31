@@ -127,7 +127,14 @@ namespace IMS.Controllers
         // uniqueness validation code
         public JsonResult IsNameExists(string Name)
         {
-            return Json(!db.Vendors.Any(n => n.Name == Name), JsonRequestBehavior.AllowGet);
+            if (db.Vendors != null)
+            {
+                return Json(!db.Vendors.Any(n => n.Name == Name), JsonRequestBehavior.AllowGet);
+            }
+            else
+            {
+                return Json(null, JsonRequestBehavior.AllowGet);
+            }
         }
     }
 }
