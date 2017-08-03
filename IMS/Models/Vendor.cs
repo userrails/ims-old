@@ -21,5 +21,7 @@ namespace IMS.Models
     {
         [Remote("IsNameExists", "Vendors", ErrorMessage="Already Exists")]
         public string Name { get; set; }
+        [Remote("IsPanExists", "Vendors", ErrorMessage="Already Exists")]
+        public string Panno { get; set; }
     }
 }

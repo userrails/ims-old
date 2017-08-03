@@ -12,10 +12,11 @@ namespace IMS.Migrations
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        Name = c.String(),
-                        Description = c.String(),
-                        Price = c.Decimal(nullable: false, precision: 18, scale: 2),
-                    })
+                        Name = c.String(nullable: false),
+                        Description = c.String(nullable: false),
+                        SellingPrice = c.Decimal(nullable: false, precision: 18, scale: 2),
+                        StockQty = c.Int(nullable: false),
+                })
                 .PrimaryKey(t => t.Id);
             
         }

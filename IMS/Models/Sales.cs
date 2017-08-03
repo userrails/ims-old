@@ -20,8 +20,8 @@ namespace IMS.Models
         public decimal DiscountPercentage { get; set; }
         public decimal DiscountAmount { get; set; }
         public bool IsVatTaken { get; set; }
-        public int SalesOrderId { get; set; }
-        public virtual SalesOrder SalesOrder { get; set; }
+        public int OrderId { get; set; }
+        public virtual Order Order { get; set; }
     }
 
     // when stock qty is less than selling qty, validation error should raise

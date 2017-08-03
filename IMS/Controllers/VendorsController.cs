@@ -136,5 +136,18 @@ namespace IMS.Controllers
                 return Json(null, JsonRequestBehavior.AllowGet);
             }
         }
+
+        // uniqueness validation code
+        public JsonResult IsPanExists(string Panno)
+        {
+            if (db.Vendors != null)
+            {
+                return Json(!db.Vendors.Any(n => n.Panno == Panno), JsonRequestBehavior.AllowGet);
+            }
+            else
+            {
+                return Json(null, JsonRequestBehavior.AllowGet);
+            }
+        }
     }
 }
