@@ -17,6 +17,8 @@ namespace IMS.Controllers
         // GET: Carts
         public ActionResult Index()
         {
+            // return View();
+            ViewBag.AllVendors = db.Vendors.OrderBy(a => a.Id).ToList();
             return View();
         }
 

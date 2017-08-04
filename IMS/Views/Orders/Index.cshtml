@@ -1,0 +1,25 @@
+﻿@model IMS.Models.SalesOrderViewModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>List of orders</h2>
+
+<div>
+    <h2>Id</h2>
+    <h2>OrderDate</h2>
+    @foreach (var item in Model.Orders)
+    {
+        <h2>@item.Id</h2>
+        <h2>@item.OrderDate</h2>
+    }
+    <h2>Id</h2>
+    <h2>qty</h2>
+    @foreach (var sales in Model.SellEntries)
+    {
+        <h2>@sales.Id</h2>
+        <h2>@sales.Qty</h2>
+        <h2>@sales.Product.Name</h2>
+    }
+</div>
